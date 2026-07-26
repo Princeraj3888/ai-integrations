@@ -1,2 +1,4 @@
-package com.careforever.dto;public class StopReportDto {
+package com.careforever.dto;
+
+public class StopReportDto {
 }

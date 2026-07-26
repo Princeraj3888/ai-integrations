@@ -1,4 +1,4 @@
-package com.careforever.util;
+package com.careforever.config;
 
 import lombok.Getter;
 import lombok.Setter;

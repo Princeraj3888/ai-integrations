@@ -1,2 +1,4 @@
-package com.careforever.dto;public class DriverDto {
+package com.careforever.dto;
+
+public class DriverDto {
 }

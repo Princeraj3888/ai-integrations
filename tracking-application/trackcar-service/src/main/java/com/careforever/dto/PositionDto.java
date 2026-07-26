@@ -1,2 +1,4 @@
-package com.careforever.dto;public class PositionDto {
+package com.careforever.dto;
+
+public class PositionDto {
 }

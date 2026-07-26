@@ -1,2 +1,4 @@
-package com.careforever.dto;public class EventDto {
+package com.careforever.dto;
+
+public class EventDto {
 }

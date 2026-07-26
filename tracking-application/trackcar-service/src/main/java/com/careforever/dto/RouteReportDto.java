@@ -1,2 +1,4 @@
-package com.careforever.dto;public class RouteReportDto {
+package com.careforever.dto;
+
+public class RouteReportDto {
 }

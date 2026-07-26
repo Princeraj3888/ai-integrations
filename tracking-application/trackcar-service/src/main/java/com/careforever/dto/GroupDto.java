@@ -1,2 +1,4 @@
-package com.careforever.dto;public class GroupDto {
+package com.careforever.dto;
+
+public class GroupDto {
 }

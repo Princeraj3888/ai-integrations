@@ -1,2 +1,4 @@
-package com.careforever.dto;public class GeofenceDto {
+package com.careforever.dto;
+
+public class GeofenceDto {
 }
