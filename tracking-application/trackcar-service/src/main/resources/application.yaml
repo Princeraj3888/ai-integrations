@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: trackcar-service
+traccar:
+  url: http://localhost:8082
+  email: admin
+  password: admin
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
