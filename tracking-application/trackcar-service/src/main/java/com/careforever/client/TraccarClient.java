@@ -1,6 +1,7 @@
 package com.careforever.client;
 
 import com.careforever.dto.DeviceDto;
+import com.careforever.dto.PositionDto;
 import com.careforever.security.SessionManager;
 import jakarta.ws.rs.core.HttpHeaders;
 import lombok.RequiredArgsConstructor;
@@ -35,17 +36,19 @@ public class TraccarClient {
             .orElse(List.of());
     }
 
-    public String getPositions() {
+    public List<PositionDto> getPositions() {
 
-        return executeString(() ->
+        return Optional.ofNullable(execute(() ->
                 traccarWebClient
                         .get()
                         .uri("/api/positions")
                         .header(HttpHeaders.COOKIE,
                                 sessionManager.getSessionCookie())
                         .retrieve()
-                        .bodyToMono(String.class)
-                        .block());
+                        .bodyToFlux(PositionDto.class)
+                        .collectList()
+                        .block()))
+                .orElse(List.of());
 
     }
 
@@ -105,17 +108,24 @@ public class TraccarClient {
 
     }
 
-    public String getRoute() {
+    public List<PositionDto> getRoute(Long deviceId, String from, String to) {
 
-        return executeString(() ->
+        return Optional.ofNullable(execute(() ->
                 traccarWebClient
                         .get()
-                        .uri("/api/reports/route")
+                        .uri(uriBuilder -> uriBuilder
+                                .path("/api/reports/route")
+                                .queryParam("deviceId", deviceId)
+                                .queryParam("from", from)
+                                .queryParam("to", to)
+                                .build())
                         .header(HttpHeaders.COOKIE,
                                 sessionManager.getSessionCookie())
                         .retrieve()
-                        .bodyToMono(String.class)
-                        .block());
+                        .bodyToFlux(PositionDto.class)
+                        .collectList()
+                        .block()))
+                .orElse(List.of());
 
     }
 

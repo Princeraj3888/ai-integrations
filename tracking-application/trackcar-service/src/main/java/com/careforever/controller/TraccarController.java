@@ -1,12 +1,10 @@
 package com.careforever.controller;
 
 import com.careforever.dto.DeviceDto;
+import com.careforever.dto.PositionDto;
 import com.careforever.service.TraccarService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class TraccarController {
     }
 
     @GetMapping("/positions")
-    public String getPositions(){
+    public List<PositionDto> getPositions(){
 
         return traccarService.getPositions();
 
@@ -49,9 +47,9 @@ public class TraccarController {
 
     }
     @GetMapping("/reports/route")
-    public String getRoute(){
+    public List<PositionDto> getRoute(@RequestParam Long deviceId, @RequestParam String from, @RequestParam String to){
 
-        return traccarService.getRoute();
+        return traccarService.getRoute(deviceId, from, to);
 
     }
     @GetMapping("/reports/trips")

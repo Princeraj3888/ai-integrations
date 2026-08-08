@@ -2,9 +2,9 @@ spring:
   application:
     name: trackcar-service
 traccar:
-  url: http://localhost:8082
-  email: admin
-  password: admin
+  url: http://34.44.187.33:8082
+  email: luckyraj2307@gmail.com
+  password: Pr!nce@2307
 
 eureka:
   client:

@@ -2,6 +2,7 @@ package com.careforever.service;
 
 import com.careforever.client.TraccarClient;
 import com.careforever.dto.DeviceDto;
+import com.careforever.dto.PositionDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class TraccarService {
 
     }
 
-    public String getPositions(){
+    public List<PositionDto> getPositions(){
 
         return traccarClient.getPositions();
 
@@ -49,9 +50,9 @@ public class TraccarService {
 
     }
 
-    public String getRoute(){
+    public List<PositionDto> getRoute(Long deviceId, String from, String to){
 
-        return traccarClient.getRoute();
+        return traccarClient.getRoute(deviceId, from, to);
 
     }
 
